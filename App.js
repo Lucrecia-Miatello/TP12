@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { TextInput, Button, StyleSheet, Text, View } from 'react-native';
 
 const drawNumber = (num, char) => {
-  // Define las representaciones de los dígitos del 0 al 9
+  
   const digits = [
     ["###", "# #", "# #", "# #", "###"],
     ["  #", "  #", "  #", "  #", "  #"],
@@ -17,34 +17,34 @@ const drawNumber = (num, char) => {
     ["###", "  #", "###", "  #", "###"]
   ];
 
-  // Convierte el número a una cadena
+  
   const numStr = num.toString();
 
-  // Inicializa la representación dibujada
+  
   let drawn = "";
 
-  // Itera a través de cada fila de la representación del número
+  
   for (let i = 0; i < 5; i++) {
-    // Inicializa una nueva línea
+    
     let line = "";
 
     for (let j = 0; j < numStr.length; j++) {
       const digit = parseInt(numStr[j]);
       const digitRepresentation = digits[digit][i];
 
-      // Agrega un espacio entre los números
+      
       if (j > 0) {
-        line += " "; // Un espacio para separación
+        line += " "; 
       }
 
       line += digitRepresentation;
     }
 
-    // Agrega la línea actual a la representación dibujada
+    
     drawn += line + "\n";
   }
 
-  // Reemplaza el carácter especificado por el usuario
+  
   drawn = drawn.replace(/#/g, char);
 
   return drawn;
@@ -57,7 +57,7 @@ const App = () => {
   const [resultado, setResultado] = useState("");
 
   const handleDibujarNumero = () => {
-    // Llama a la función drawNumber con el número y el carácter seleccionado
+    
     const dibujo = drawNumber(numero, caracter);
     setResultado(dibujo);
   };
@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   resultado: {
-    fontFamily: 'monospace', // Usamos una fuente de espaciado fijo para mantener la alineación
-    fontSize: 16, // Tamaño de fuente ajustado
+    fontFamily: 'monospace', 
+    fontSize: 16, 
     marginTop: 10
   }
 });
